@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merve Dede — AI in Education Researcher</title>
+  <meta name="description" content="Merve Dede — Educational Data Mining, Learning Analytics, AI in Education, Large-Scale Assessment Research." />
+  <meta property="og:title" content="Merve Dede — AI in Education Researcher" />
+  <meta property="og:description" content="Educational Data Mining, Learning Analytics, AI in Education, Large-Scale Assessment Research." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234f46e5'/><text x='16' y='22' font-family='Inter,sans-serif' font-size='16' font-weight='700' fill='white' text-anchor='middle'>M</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:  #111;
+      --dim:  #555;
+      --mute: #999;
+      --rule: #e8e8e8;
+      --a:    #4f46e5;
+      --a2:   #eef2ff;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell { max-width: 800px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    /* ── HEADER ── */
+    header { margin-bottom: 40px; }
+
+    h1 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.048em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .areas { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .area {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--a);
+      background: var(--a2);
+      border-radius: 4px;
+      padding: 3px 10px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      white-space: nowrap;
+      overflow-x: auto;
+      border-bottom: 1.5px solid var(--rule);
+      margin-bottom: 52px;
+      gap: 20px;
+      scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar { display: none; }
+
+    nav button {
+      background: none; border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1.5px;
+      font-family: inherit; font-size: 10.5px; font-weight: 700;
+      color: var(--mute);
+      padding: 9px 0;
+      cursor: pointer; letter-spacing: .05em; text-transform: uppercase;
+      flex-shrink: 0;
+      transition: color .15s, border-color .15s;
+    }
+
+    nav button:hover { color: var(--ink); }
+    nav button.on { color: var(--a); border-bottom-color: var(--a); }
+
+    /* ── PANES ── */
+    .pane { display: none; }
+    .pane.on { display: block; }
+
+    /* ── ABOUT ── */
+.bio { font-size: 14.5px; color: var(--dim); line-height: 1.85; max-width: 600px; }
+    .bio + .bio { margin-top: 14px; }
+
+    .about-interests {
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: #fafafa;
+      margin-bottom: 28px;
+    }
+
+    .about-int-title {
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--a); margin-bottom: 16px;
+    }
+
+    .about-int-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-int-list li {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .about-int-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--a);
+    }
+
+    .ext-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+    .ext-links a {
+      font-size: 12px; font-weight: 600;
+      color: var(--a); border: 1.5px solid var(--a);
+      border-radius: 5px; padding: 5px 14px;
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+
+    .ext-links a:hover { background: var(--a); color: #fff; }
+
+    /* ── APPOINTMENTS ── */
+    .appt-list { list-style: none; border-top: 1px solid var(--rule); }
+
+    .appt-item {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .appt-year {
+      font-size: 12px; font-weight: 600;
+      color: var(--a); min-width: 100px;
+      flex-shrink: 0; padding-top: 2px;
+      letter-spacing: .02em;
+    }
+
+    .appt-role { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .appt-dept { font-size: 13px; color: var(--dim); margin-bottom: 2px; }
+    .appt-inst { font-size: 13px; font-weight: 500; color: var(--mute); }
+
+    /* ── EDUCATION ── */
+    .edu-list { list-style: none; border-top: 1px solid var(--rule); }
+
+    .edu-item {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .edu-years-col {
+      font-size: 12px; font-weight: 600;
+      color: var(--a); min-width: 100px;
+      flex-shrink: 0; padding-top: 2px;
+      letter-spacing: .02em;
+    }
+
+    .edu-degree { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .edu-field  { font-size: 13px; color: var(--dim); margin-bottom: 2px; }
+    .edu-inst   { font-size: 13px; font-weight: 500; color: var(--mute); }
+
+    .edu-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: var(--a); background: var(--a2);
+      border-radius: 3px; padding: 2px 7px;
+      margin-top: 8px;
+    }
+
+    /* ── RESEARCH ── */
+    .research-list { list-style: none; border-top: 1px solid var(--rule); }
+
+    .r-item { padding: 22px 0; border-bottom: 1px solid var(--rule); }
+
+    .r-name { font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .r-def  { font-size: 13.5px; color: var(--dim); line-height: 1.78; max-width: 600px; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-tabs {
+      display: flex; gap: 3px; margin-bottom: 32px;
+      background: #f4f4f5; border-radius: 8px; padding: 4px;
+      width: fit-content;
+    }
+
+    .pub-tab {
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 12px; font-weight: 600;
+      color: var(--mute); padding: 7px 18px; border-radius: 6px;
+      letter-spacing: .02em; transition: background .15s, color .15s;
+    }
+
+    .pub-tab.on { background: #fff; color: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+
+    .pub-pane { display: none; }
+    .pub-pane.on { display: block; }
+
+    .pub {
+      display: flex; gap: 20px;
+      padding: 20px 0; border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+    }
+    .pub:last-child { border-bottom: none; }
+
+    .pub-num {
+      font-size: 13px; font-weight: 700;
+      color: var(--a); min-width: 28px;
+      text-align: right; flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .pub-body { flex: 1; min-width: 0; }
+
+    .pub-title   { font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 5px; line-height: 1.48; }
+    .pub-authors { font-size: 12.5px; color: var(--dim); margin-bottom: 3px; }
+    .pub-authors strong { color: var(--ink); font-weight: 600; }
+    .pub-venue   { font-size: 12px; color: var(--mute); }
+
+    .pub-chips { display: flex; gap: 5px; margin-top: 7px; }
+    .chip { font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 3px; background: var(--a2); color: var(--a); }
+
+    /* ── PROJECTS ── */
+    .proj-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .proj {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 26px;
+      background: #fafafa;
+      position: relative; overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .proj:hover {
+      border-color: var(--a);
+      box-shadow: 0 4px 20px rgba(79,70,229,.08);
+    }
+
+    .proj::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; bottom: 0; width: 3px;
+      background: var(--a);
+    }
+
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 4px; }
+
+    .proj-title { font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+
+    .proj-badge {
+      font-size: 10.5px; font-weight: 700;
+      color: var(--a); background: var(--a2);
+      border-radius: 4px; padding: 3px 9px;
+      white-space: nowrap; flex-shrink: 0;
+      letter-spacing: .03em;
+    }
+
+    .proj-uni  { font-size: 12px; font-weight: 500; color: var(--mute); margin-bottom: 10px; }
+    .proj-desc { font-size: 13.5px; color: var(--dim); line-height: 1.75; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+
+    .c-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--rule);
+      border-radius: 9px;
+      text-decoration: none;
+      color: inherit;
+      background: #fafafa;
+      transition: border-color .18s, background .18s, box-shadow .18s;
+    }
+
+    .c-card:hover {
+      border-color: var(--a);
+      background: var(--a2);
+      box-shadow: 0 2px 10px rgba(79,70,229,.08);
+    }
+
+    .c-ico {
+      width: 32px; height: 32px;
+      border-radius: 7px;
+      background: #ececec;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .18s;
+    }
+
+    .c-card:hover .c-ico { background: #dde1ff; }
+
+    .c-ico svg { width: 15px; height: 15px; }
+
+    .c-info { min-width: 0; }
+    .c-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--mute); margin-bottom: 1px; }
+    .c-val   { font-size: 12.5px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .c-note {
+      font-size: 13.5px; color: var(--dim);
+      line-height: 1.75; max-width: 520px;
+      padding-top: 20px; border-top: 1px solid var(--rule);
+    }
+
+    footer { margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--mute); }
+
+    @media (max-width: 580px) {
+      .shell { padding: 52px 20px 80px; }
+      h1 { font-size: 32px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .edu-item, .appt-item { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <header>
+    <h1>Merve Dede</h1>
+    <div class="areas">
+      <span class="area">AI in Education</span>
+      <span class="area">Educational Data Mining</span>
+      <span class="area">Learning Analytics</span>
+      <span class="area">Large-Scale Assessments</span>
+    </div>
+  </header>
+
+  <nav>
+    <button class="on" onclick="show('about',this)">About</button>
+    <button onclick="show('appointments',this)">Appointments</button>
+    <button onclick="show('education',this)">Education</button>
+    <button onclick="show('research',this)">Research</button>
+    <button onclick="show('publications',this)">Publications</button>
+    <button onclick="show('projects',this)">Projects</button>
+    <button onclick="show('contact',this)">Contact</button>
+  </nav>
+
+  <!-- ABOUT -->
+  <div id="about" class="pane on">
+    <p class="bio">My research lies at the intersection of artificial intelligence, data science, and education. I investigate how data-driven methods can deepen our understanding of learning, support educational decision-making, and contribute to the development of more effective educational systems.</p>
+    <p class="bio">Drawing on approaches from educational data mining, learning analytics, and machine learning, I study learning processes and educational outcomes using large-scale assessment data. My work focuses on developing rigorous, interpretable, and reproducible methods for analyzing complex educational datasets and generating evidence that can inform both research and practice.</p>
+    <p class="bio">I am particularly interested in international large-scale assessments, artificial intelligence in education, and the use of large language models to support educational research. In parallel, I explore how machine learning and artificial intelligence can be taught effectively, contributing to research on machine learning education.</p>
+    <p class="bio">Through my research, I aim to bridge advances in artificial intelligence with meaningful educational challenges, creating methods and tools that support evidence-based educational research and innovation.</p>
+
+    <div class="about-interests">
+      <div class="about-int-title">Research Interests</div>
+      <ul class="about-int-list">
+        <li>Educational Data Mining</li>
+        <li>Learning Analytics</li>
+        <li>Artificial Intelligence in Education</li>
+        <li>International Large-Scale Assessments (PISA, TIMSS, PIRLS, TALIS, PIAAC, ICILS, ICCS)</li>
+        <li>Large Language Models for Educational Research</li>
+        <li>Machine Learning Education</li>
+        <li>Explainable AI in Education</li>
+      </ul>
+    </div>
+
+    <div class="ext-links">
+      <a href="https://scholar.google.com/citations?user=s0hmuY8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/dedemerve" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://orcid.org/0009-0006-8267-1714" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.linkedin.com/in/dedemerve" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:dedemervee@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <!-- APPOINTMENTS -->
+  <div id="appointments" class="pane">
+    <ul class="appt-list">
+      <li class="appt-item">
+        <div class="appt-year">2026 – Present</div>
+        <div>
+          <div class="appt-role">Research Assistant</div>
+          <div class="appt-dept">Artificial Intelligence and Machine Learning</div>
+          <div class="appt-inst">Istanbul Beykent University, Istanbul</div>
+        </div>
+      </li>
+      <li class="appt-item">
+        <div class="appt-year">2025 – 2026</div>
+        <div>
+          <div class="appt-role">Research Assistant</div>
+          <div class="appt-dept">Artificial Intelligence Engineering</div>
+          <div class="appt-inst">Istanbul Beykent University, Istanbul</div>
+        </div>
+      </li>
+      <li class="appt-item">
+        <div class="appt-year">2024 – 2025</div>
+        <div>
+          <div class="appt-role">Research Assistant</div>
+          <div class="appt-dept">Educational Research Program</div>
+          <div class="appt-inst">Institute Social, Istanbul</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- EDUCATION -->
+  <div id="education" class="pane">
+    <ul class="edu-list">
+      <li class="edu-item">
+        <div class="edu-years-col">2024 – Present</div>
+        <div>
+          <div class="edu-degree">Master of Science</div>
+          <div class="edu-field">Data Science and Big Data</div>
+          <div class="edu-inst">Yıldız Technical University, Istanbul</div>
+          <span class="edu-tag">In Progress</span>
+        </div>
+      </li>
+      <li class="edu-item">
+        <div class="edu-years-col">2020 – 2024</div>
+        <div>
+          <div class="edu-degree">Bachelor of Arts</div>
+          <div class="edu-field">Primary Mathematics Teaching</div>
+          <div class="edu-inst">Marmara University, Istanbul</div>
+          <span class="edu-tag">Completed</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- RESEARCH -->
+  <div id="research" class="pane">
+    <ul class="research-list">
+      <li class="r-item">
+        <div class="r-name">Educational Data Mining</div>
+        <div class="r-def">The application of machine learning and statistical modeling to data generated within educational systems, with the goal of uncovering patterns that inform instruction, policy, and system design. EDM treats educational datasets as complex, hierarchically structured sources of evidence requiring methodologically appropriate analytic approaches.</div>
+      </li>
+      <li class="r-item">
+        <div class="r-name">Learning Analytics</div>
+        <div class="r-def">The measurement, collection, and analysis of data about learners in order to understand and optimize learning and the environments in which it occurs. Learning analytics bridges educational research and data science, connecting findings from large-scale assessment programmes to actionable evidence for researchers and practitioners.</div>
+      </li>
+      <li class="r-item">
+        <div class="r-name">LLMs for Evidence Synthesis</div>
+        <div class="r-def">The use of large language models with schema-constrained output validation to extract structured evidence from bodies of research literature at scale. This approach enables systematic, auditable synthesis of findings across thousands of studies, producing queryable knowledge bases that support evidence-informed research.</div>
+      </li>
+      <li class="r-item">
+        <div class="r-name">International Large-Scale Assessments</div>
+        <div class="r-def">Cross-national educational surveys — including PISA, TIMSS, PIRLS, TALIS, PIAAC, ICILS, and ICCS — that generate rich comparative evidence about student achievement, educator practices, and system-level factors. Valid secondary analysis of ILSA data requires careful attention to plausible values, replicate weights, and complex sampling designs.</div>
+      </li>
+      <li class="r-item">
+        <div class="r-name">Machine Learning Education</div>
+        <div class="r-def">The design, implementation, and evaluation of curricula and instructional approaches that develop machine learning competencies in students who are not computer science majors. This includes pre-service mathematics teachers, education faculty, and other disciplinary contexts where ML is becoming methodologically relevant.</div>
+      </li>
+      <li class="r-item">
+        <div class="r-name">Explainable AI in Education</div>
+        <div class="r-def">The use of model interpretability methods — including SHAP and LIME — to make predictive models applied to educational data transparent and actionable for practitioners who must make decisions on the basis of model outputs. Interpretability is understood here as a functional requirement rather than a technical nicety.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <div id="publications" class="pane">
+    <div class="pub-tabs">
+      <button class="pub-tab on" onclick="showPub('pj',this)">Journal Articles</button>
+      <button class="pub-tab" onclick="showPub('pc',this)">Conference Papers</button>
+    </div>
+
+    <div id="pj" class="pub-pane on">
+      <div class="pub">
+        <div class="pub-num">1</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/11513238" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Teaching Artificial Intelligence and Machine Learning to Non-Majors: A Scoping Review</a></div>
+          <div class="pub-authors">Koklu, O., Sahal, M., &amp; <strong>Dede, M.</strong></div>
+          <div class="pub-venue">IEEE Access · 2026 · Vol. 14 · pp. 72287–72301</div>
+          <div class="pub-venue" style="margin-top:3px;">
+            <a href="https://doi.org/10.1109/ACCESS.2026.3691617" target="_blank" rel="noopener" style="color:var(--a);font-weight:500;text-decoration:none;font-size:12px;">DOI: 10.1109/ACCESS.2026.3691617 ↗</a>
+          </div>
+          <div class="pub-chips"><span class="chip">SCIE</span><span class="chip">Q2</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pc" class="pub-pane">
+      <div class="pub">
+        <div class="pub-num">1</div>
+        <div class="pub-body">
+          <div class="pub-title">Investigating How High School Students Learn ML: The Case of Decision Trees for Classification</div>
+          <div class="pub-authors">Koklu, O., <strong>Dede, M.</strong>, &amp; Sahal, M.</div>
+          <div class="pub-venue">49th Conference of the International Group for the Psychology of Mathematics Education (PME 49) · Helsinki, Finland · July 2026</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">2</div>
+        <div class="pub-body">
+          <div class="pub-title">Teaching Artificial Intelligence and Machine Learning to Non-Major Students at University: A Scoping Review</div>
+          <div class="pub-authors">Koklu, O., Sahal, M., &amp; <strong>Dede, M.</strong></div>
+          <div class="pub-venue">American Educational Research Association (AERA) · Los Angeles, CA · April 2026</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">3</div>
+        <div class="pub-body">
+          <div class="pub-title">Comparing Linear and Ensemble-Based AI Models for Predicting Academic Performance in Noisy and Multilevel Data</div>
+          <div class="pub-authors"><strong>Dede, M.</strong> &amp; Inan-Barutcu, E.</div>
+          <div class="pub-venue">2nd Int. Congress on Natural Sciences &amp; Applied Mathematics · Istanbul, Türkiye · February 2026</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">4</div>
+        <div class="pub-body">
+          <div class="pub-title">Yapay Zekâ Kullanımının Öğrenci Akademik Başarısı Üzerindeki Etkisi: Açıklanabilir Yapay Zekâ Yaklaşımı</div>
+          <div class="pub-authors">Edis, V. &amp; <strong>Dede, M.</strong></div>
+          <div class="pub-venue">24. Akademik Bilişim Konferansı (AB'26) · Istanbul, Türkiye · February 2026</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">5</div>
+        <div class="pub-body">
+          <div class="pub-title">Makine Öğrenmesine Giriş: Karar Ağaçları ile Lise Düzeyinde Müfredat Geliştirme Denemesi</div>
+          <div class="pub-authors"><strong>Dede, M.</strong> &amp; Koklu, O.</div>
+          <div class="pub-venue">7. Uluslararası Türk Bilgisayar ve Matematik Eğitimi Sempozyumu (TÜRKBİLMAT) · Antalya, Türkiye · November 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" class="pane">
+    <ul class="proj-list">
+      <li class="proj">
+        <div class="proj-header">
+          <div class="proj-title">How do preservice mathematics teachers develop machine learning competencies?</div>
+          <span class="proj-badge">BAP · 2026</span>
+        </div>
+        <div class="proj-uni">Yıldız Technical University</div>
+        <p class="proj-desc">Designing and evaluating instructional sequences for decision tree classification using CODAP. The project examines how participants connect algorithmic thinking to prior mathematical knowledge, contributing design principles for ML education in teacher preparation programmes.</p>
+      </li>
+      <li class="proj">
+        <div class="proj-header">
+          <div class="proj-title">Adaptive online statistics education for teacher education students</div>
+          <span class="proj-badge">SUP · 2024</span>
+        </div>
+        <div class="proj-uni">Boğaziçi University · Grant SUP 20011</div>
+        <p class="proj-desc">Design and evaluation of an adaptive online introductory statistics course using computer adaptive testing and CODAP-based data exploration. Addresses the persistent gap in statistical training within teacher education programmes.</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="pane">
+    <div class="contact-grid">
+
+      <a class="c-card" href="mailto:dedemervee@gmail.com">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">Email</div>
+          <div class="c-val">dedemervee@gmail.com</div>
+        </div>
+      </a>
+
+      <a class="c-card" href="https://scholar.google.com/citations?user=s0hmuY8AAAAJ&hl=en" target="_blank" rel="noopener">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">Google Scholar</div>
+          <div class="c-val">Merve Dede</div>
+        </div>
+      </a>
+
+      <a class="c-card" href="https://huggingface.co/dedemerve" target="_blank" rel="noopener">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">Hugging Face</div>
+          <div class="c-val">dedemerve</div>
+        </div>
+      </a>
+
+      <a class="c-card" href="https://orcid.org/0009-0006-8267-1714" target="_blank" rel="noopener">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#4f46e5"/>
+            <path d="M8.5 7h1.1v10H8.5V7z" fill="#fff"/>
+            <circle cx="9.05" cy="5.5" r="1" fill="#fff"/>
+            <path d="M12.5 7h3.2c3 0 4.3 1.9 4.3 5s-1.3 5-4.3 5H12.5V7zm1.1 1v8h2c2.2 0 3.2-1.4 3.2-4s-1-4-3.2-4h-2z" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">ORCID</div>
+          <div class="c-val">0009-0006-8267-1714</div>
+        </div>
+      </a>
+
+      <a class="c-card" href="https://github.com/dedemerve" target="_blank" rel="noopener">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="#4f46e5"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.96 10.96 0 012.87-.39c.97 0 1.95.13 2.87.39 2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.35.78 1.05.78 2.12v3.14c0 .3.2.66.8.55A10.51 10.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">GitHub</div>
+          <div class="c-val">github.com/dedemerve</div>
+        </div>
+      </a>
+
+      <a class="c-card" href="https://www.linkedin.com/in/dedemerve" target="_blank" rel="noopener">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="#4f46e5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.993 23.227 23.993 22.271V1.729C23.993.774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="c-info">
+          <div class="c-label">LinkedIn</div>
+          <div class="c-val">linkedin.com/in/dedemerve</div>
+        </div>
+      </a>
+
+    </div>
+    <p class="c-note">I welcome collaborations across AI in Education, Educational Data Mining, Learning Analytics, and Large-Scale Assessment Research.</p>
+  </div>
+
+  <footer>Merve Dede · <span id="yr"></span></footer>
+
+</div>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function show(id, btn) {
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    btn.classList.add('on');
+  }
+  function showPub(id, btn) {
+    document.querySelectorAll('.pub-pane').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.pub-tab').forEach(b => b.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    btn.classList.add('on');
+  }
+</script>
+</body>
+</html>
